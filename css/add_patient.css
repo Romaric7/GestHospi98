@@ -1,0 +1,25 @@
+#button_submit{
+    width: 200px;
+     height: 50px; 
+     margin-left:220px;
+      background-color: rgb(65, 158, 65);
+      font-size: 18px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      border-radius: 5px;
+      color: black;
+  }
+  
+  #button_submit:hover{
+  background-color: #046b2c;
+  }
+
+form{
+      border-radius: 20px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+      font-size: 15px; 
+      background-color: #879ee4;
+  }
+
+form .row{
+    margin-left: 40px;
+}
