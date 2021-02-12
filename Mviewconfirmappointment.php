@@ -140,16 +140,39 @@
 
                                     $conn=new mysqli("localhost","root","","gesthospi");
 
-                                    $sql = "SELECT * FROM rendez_vous WHERE statut='2' AND fk_corps_medical= $id_medecin";
-                                    $result = mysqli_query($conn, $sql);
-                                 
+                                            //CODE DE BASCULEMENT DANS CONSULTATION
+                                            $sql2 = "SELECT * FROM rendez_vous WHERE statut='2' AND fk_corps_medical= $id_medecin ORDER BY pk_rendez_vous DESC";
+                                            $result2 = mysqli_query($conn, $sql2);
+                                           if (mysqli_num_rows($result2) > 0) {
+   
+                                               while($row2 = mysqli_fetch_assoc($result2))  {
+                                                   if (strtotime( $row2["date_rendez_vous"]) >= strtotime(date("Y-m-d"))) {
+                                                       if (strtotime($row2["heure_rendez_vous"])<=strtotime(date("H:i:s"))) {
 
+                                                        $id = $row2["pk_rendez_vous"];
+   
+                                                        $query = "UPDATE rendez_vous SET statut='4' WHERE pk_rendez_vous = $id";
+                                                        $res = mysqli_query($conn, $query);
+                                                        if ($res) { 
+                                                                 
+                                                        }
+   
+                                                       }
+   
+                                                   }
+   
+                                               }
+   
+                                           }
+
+                                    $sql = "SELECT * FROM rendez_vous WHERE statut='2' AND fk_corps_medical= $id_medecin ORDER BY pk_rendez_vous DESC";
+                                    $result = mysqli_query($conn, $sql);
 
                                     if (mysqli_num_rows($result) > 0) {
                                         echo "
                                              <thead>
                                                 <tr>
-                                                    <th><i class='fa fa-user-injured'></i> Patient sollicitant</th>
+                                                    <th><i class='fa fa-user'></i> Patient sollicitant</th>
                                                     <th><i class='fa fa-calendar'></i> Date du rendez-vous</th>
                                                     <th><i class='fa fa-clock'></i> Heure du rendez-vous</th>
                                                     <th><i class='fa fa-pencil-square-o'></i> Motif</th> 
@@ -159,7 +182,7 @@
                                                 </thead>
                                                 <tfoot>
                                                 <tr>
-                                                    <th><i class='fa fa-user-md'></i> Patient sollicitant</th>
+                                                    <th><i class='fa fa-user'></i> Patient sollicitant</th>
                                                     <th><i class='fa fa-calendar'></i> Date du rendez-vous</th>
                                                     <th><i class='fa fa-clock'></i> Heure du rendez-vous</th>
                                                     <th><i class='fa fa-pencil-square-o'></i> Motif</th> 
@@ -187,13 +210,14 @@
                                             $prenom_patient = $row2["prenom"];
 
                             
-                                            echo "<tbody><tr><td>" .$nom_patient." ".$prenom_patient."</td><td>".$row["specialite"]."</td><td>".$row["date_rendez_vous"]."</td><td>".$row["heure_rendez_vous"]."</td><td>".$row["motif"]."</td><i><td style='color:green;font-size:18px'>".$row["statut"]."</td></i><td><a href='rejectappointment.php?id=".$row["pk_rendez_vous"]."'><button class='btn btn-primary' title='Rejeter' style='background-color:red; border:1px solid red'><i class='fa fa fa-trash'></i></button></a></td></tr>";
+                                            echo "<tbody><tr><td>" .$nom_patient." ".$prenom_patient."</td><td>".$row["date_rendez_vous"]."</td><td>".$row["heure_rendez_vous"]."</td><td>".$row["motif"]."</td><i><td style='color:green;font-size:18px'>".$row["statut"]."</td></i><td><a href='rejectconfirmappointment.php?id=".$row["pk_rendez_vous"]."'><button class='btn btn-primary' title='Rejeter' style='background-color:red; border:1px solid red'><i class='fa fa fa-trash'></i></button></a></td></tr>";
                                     
                                         }
                                         echo "</tbody></table>";
                                         }else {
-                                            echo "<h2><i class='fa fa-bell-slash fa-lg'></i>Aucun rendez-vous approuvés</h2><br><br>";
+                                            echo "<h2><i class='fa fa-bell-slash fa-lg'></i>Aucun rendez-vous approuvé</h2><br><br>";
                                         }
+
                                         mysqli_close($conn);
 
                                 ?>

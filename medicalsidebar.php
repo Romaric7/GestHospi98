@@ -41,9 +41,7 @@
                     </div>
                 </div>
             </li>
-
           
-
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -67,30 +65,6 @@
                 </div>
             </li>
 
-            <!-- Divider 
-            <hr class="sidebar-divider">
-
-             <!-- Heading 
-             <div class="sidebar-heading">
-              
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fa fa-2x fa-hospital"></i>
-                    <span>CENTRES MÉDICAUX</span>
-                </a>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                       
-                        <a class="collapse-item" href="Mviewcenter.php">Liste des centres médicaux</a>
-                    </div>
-                </div>
-            </li>-->
-
-
                <!-- Divider -->
                <hr class="sidebar-divider">
 
@@ -110,6 +84,8 @@
                       <div class="bg-white py-2 collapse-inner rounded">
 
                           <a class="collapse-item" href="Mviewconsultation.php">Liste des consultations</a>
+                          <a class="collapse-item" href="Mviewcomingconsultation.php">consultations en attente</a>
+                          <a class="collapse-item" href="Mviewendconsultation.php">consultations terminés</a>
                       </div>
                   </div>
               </li>

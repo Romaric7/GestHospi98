@@ -122,7 +122,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Liste des rendez-vous rejetés par <?php echo "DR"." ".$_SESSION['nom_medecin']." ".$_SESSION['prenom_medecin'];?>
+                    <h1 class="h3 mb-2 text-gray-800">Liste des consultations en attente pour <?php echo "DR"." ".$_SESSION['nom_medecin']." ".$_SESSION['prenom_medecin'];?>
                                 </h1>
 
                     <!-- DataTales Example -->
@@ -140,7 +140,7 @@
 
                                     $conn=new mysqli("localhost","root","","gesthospi");
 
-                                    $sql = "SELECT * FROM rendez_vous WHERE statut='3' AND fk_corps_medical= $id_medecin ORDER BY pk_rendez_vous DESC";
+                                    $sql = "SELECT * FROM rendez_vous WHERE statut='4' AND fk_corps_medical= $id_medecin ORDER BY pk_rendez_vous DESC";
                                     $result = mysqli_query($conn, $sql);
                                  
 
@@ -149,9 +149,7 @@
                                         echo "
                                              <thead>
                                                 <tr>
-                                                    <th><i class='fa fa-user'></i> Patient sollicitant</th>
-                                                    <th><i class='fa fa-calendar'></i> Date du rendez-vous</th>
-                                                    <th><i class='fa fa-clock'></i> Heure du rendez-vous</th>
+                                                    <th><i class='fa fa-user'></i> Patient à traiter</th>
                                                     <th><i class='fa fa-pencil-square-o'></i> Motif</th> 
                                                     <th><i class='fa fa-toggle-on'></i> Statut</th>                                               
                                                     <th><i class='fa fa-expeditedssl'></i> Actions</th>
@@ -159,9 +157,7 @@
                                                 </thead>
                                                 <tfoot>
                                                 <tr>
-                                                    <th><i class='fa fa-user'></i> Patient sollicitant</th>
-                                                    <th><i class='fa fa-calendar'></i> Date du rendez-vous</th>
-                                                    <th><i class='fa fa-clock'></i> Heure du rendez-vous</th>
+                                                    <th><i class='fa fa-user'></i> Patient à traiter</th>
                                                     <th><i class='fa fa-pencil-square-o'></i> Motif</th> 
                                                     <th><i class='fa fa-toggle-on'></i> Statut</th>                                               
                                                     <th><i class='fa fa-expeditedssl'></i> Actions</th>                                               
@@ -172,8 +168,8 @@
                                         while($row = mysqli_fetch_assoc($result))  {
 
 
-                                            if($row['statut']=='3'){
-                                                $statut_attente = "Rejeté";
+                                            if($row['statut']=='4'){
+                                                $statut_attente = "En attente";
                                                 $row['statut']= $statut_attente;
                                             }
 
@@ -187,12 +183,12 @@
                                             $prenom_patient = $row2["prenom"];
 
                             
-                                            echo "<tbody><tr><td>" .$nom_patient." ".$prenom_patient."</td><td>".$row["date_rendez_vous"]."</td><td>".$row["heure_rendez_vous"]."</td><td>".$row["motif"]."</td><i><td style='color:red;font-size:18px'>".$row["statut"]."</td></i><td><a href='approverejectappointment.php?id=".$row["pk_rendez_vous"]."'><button class='btn btn-primary' title='Approuver' style='background-color:green; border:1px solid green'><i class='fa fa-check-square-o'></i></button></a></td></tr>";
+                                            echo "<tbody><tr><td>" .$nom_patient." ".$prenom_patient."</td><td>".$row["motif"]."</td><i><td style='color:red;font-size:18px'>".$row["statut"]."</td></i><td><a href='consultation.php?id=".$row["pk_rendez_vous"]."'><button class='btn btn-primary' title='Approuver' style='background-color:#ff6600;margin-left:0px; color:black;border:1px solid #ff6600'><i class='fa fa-medkit fa-lg'></i>  Consulter le patient</button></a></td></tr>";
                                     
                                         }
                                         echo "</tbody></table>";
                                         }else {
-                                            echo "<h2><i class='fa fa-bell-slash fa-lg'></i>Aucun rendez-vous rejeté</h2><br><br>";
+                                            echo "<h2><i class='fa fa-bell-slash fa-lg'></i>Aucune consultation en attente</h2><br><br>";
                                         }
                                         mysqli_close($conn);
 

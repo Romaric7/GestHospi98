@@ -151,7 +151,7 @@ require('config.php');
                     <div class="col mr-4">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" style="font-size:18px">
                             Instant d'enregistrement </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" style="font-size:25px">Enregistré(e) sur la plateforme le <?php echo $_SESSION['date_register_medecin'];?> à <?php echo $_SESSION['heure_register_medecin'];?></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" style="font-size:25px">Enregistré(e) sur la plateforme : <u><span style="color:blue"><?php echo "  ".$_SESSION['date_register_medecin'];?></span></u></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>

@@ -150,7 +150,7 @@
                                         <div class="col mr-4">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" style="font-size:18px">
                                                 Instant d'inscription </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="font-size:25px" disabled>Inscrit(e) sur la plateforme le <?php   echo $_SESSION['date_register_patient'];?> à <?php echo $_SESSION['heure_register_patient'];?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="font-size:25px" disabled>Inscrit(e) sur la plateforme :<u><span style="color:blue"><?php echo "  " .$_SESSION['date_register_patient'];?></span></u></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>

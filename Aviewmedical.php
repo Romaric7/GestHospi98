@@ -87,31 +87,32 @@
                                         echo "
                                              <thead>
                                                 <tr>
-                                                    <th>Nom</th>
-                                                    <th>Prénom</th>
-                                                    <th>Sexe</th>
-                                                    <th>Spécialité</th>
-                                                    <th>Adresse</th>
-                                                    <th>Téléphone</th>                                                 
-                                                    <th>Date de naissance</th>
-                                                    <th>Région</th>
-                                                    <th>Adresse mail</th>
-                                                    <th>Statut</th>
-                                                    <th>Actions</th>
+                                                    <th><i class='fa fa-user-md'></i> Nom</th>
+                                                    <th><i class='fa fa-user-md'></i> Prénom</th>
+                                                    <th><i class='fa fa-mars-double'></i> Sexe</th>
+                                                    <th><i class='fa fa-medkit'></i> Spécialité</th>
+                                                    <th><i class='fa fa-home'></i> Adresse</th>
+                                                    <th><i class='fa fa-phone'></i> Téléphone</th>                                                 
+                                                    <th><i class='fa fa-calendar'></i> Date de naissance</th>
+                                                    <th><i class='fa fa-map-marker'></i> Région</th>
+                                                    <th><i class='fa fa-envelope-open'></i> Adresse mail</th>
+                                                    <th><i class='fa toggle-on'></i> Statut</th>
+                                                    <th><i class='fa fa-expeditedssl'></i> Actions</th>
                                                 </tr>
                                                 </thead>
                                                 <tfoot>
                                                 <tr>
-                                                    <th>Nom</th>
-                                                    <th>Prénom</th>
-                                                    <th>Sexe</th>
-                                                    <th>Spécialité</th>
-                                                    <th>Adresse</th>
-                                                    <th>Téléphone</th>                                                 
-                                                    <th>Date de naissance</th>
-                                                    <th>Région</th>
-                                                    <th>Adresse mail</th>
-                                                    <th>Statut</th>
+                                                    <th><i class='fa fa-user-md'></i> Nom</th>
+                                                    <th><i class='fa fa-user-md'></i> Prénom</th>
+                                                    <th><i class='fa fa-mars-double'></i> Sexe</th>
+                                                    <th><i class='fa fa-medkit'></i> Spécialité</th>
+                                                    <th><i class='fa fa-home'></i> Adresse</th>
+                                                    <th><i class='fa fa-phone'></i> Téléphone</th>                                                 
+                                                    <th><i class='fa fa-calendar'></i> Date de naissance</th>
+                                                    <th><i class='fa fa-map-marker'></i> Région</th>
+                                                    <th><i class='fa fa-envelope-open'></i> Adresse mail</th>
+                                                    <th><i class='fa toggle-on'></i> Statut</th>
+                                                    <th><i class='fa fa-expeditedssl'></i> Actions</th>
                                                 </tr>
                                                 </tfoot>";
                                         // output data of each row

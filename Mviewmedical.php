@@ -101,7 +101,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 big"><?php echo $_SESSION['username']; ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 big" style="font-size:18px"><?php echo "DR ".$_SESSION['username']; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -131,11 +131,11 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                           
-                            <h7 class="m-0 font-weight-bold text-primary">GESTOUAGA</h7>
+                            <h7 class="m-0 font-weight-bold text-primary" style="font-size:20px">GESTOUAGA MEDICAL</h7>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%">
+                            <table class="table table-bordered" id="dataTable" width="120%">
                                 <?php
                                 require('config.php');
 
@@ -153,28 +153,30 @@
                                         echo "
                                              <thead>
                                                 <tr>
-                                                    <th>Nom</th>
-                                                    <th>Prénom</th>
-                                                    <th>Sexe</th>
-                                                    <th>Spécialité</th>
-                                                    <th>Adresse</th>
-                                                    <th>Téléphone</th>                                                 
-                                                    <th>Date de naissance</th>
-                                                    <th>Région</th>
-                                                    <th>Adresse mail</th>
+                                                    <th><i class='fa fa-user-md'></i> Nom</th>
+                                                    <th><i class='fa fa-user-md'></i> Prénom</th>
+                                                    <th><i class='fa fa-mars-double'></i> Sexe</th>
+                                                    <th><i class='fa fa-medkit'></i> Spécialité</th>
+                                                    <th><i class='fa fa-home'></i> Adresse</th>
+                                                    <th><i class='fa fa-phone'></i> Téléphone</th>                                                 
+                                                    <th><i class='fa fa-calendar'></i> Date de naissance</th>
+                                                    <th><i class='fa fa-map-marker'></i> Région</th>
+                                                    <th><i class='fa fa-envelope-open'></i> Adresse mail</th>
+                                                    <th><i class='fa fa-expeditedssl'></i> Actions</th>
                                                 </tr>
                                                 </thead>
                                                 <tfoot>
                                                 <tr>
-                                                    <th>Nom</th>
-                                                    <th>Prénom</th>
-                                                    <th>Sexe</th>
-                                                    <th>Spécialité</th>
-                                                    <th>Adresse</th>
-                                                    <th>Téléphone</th>                                                 
-                                                    <th>Date de naissance</th>
-                                                    <th>Région</th>
-                                                    <th>Adresse mail</th>
+                                                    <th><i class='fa fa-user-md'></i> Nom</th>
+                                                    <th><i class='fa fa-user-md'></i> Prénom</th>
+                                                    <th><i class='fa fa-mars-double'></i> Sexe</th>
+                                                    <th><i class='fa fa-medkit'></i> Spécialité</th>
+                                                    <th><i class='fa fa-home'></i> Adresse</th>
+                                                    <th><i class='fa fa-phone'></i> Téléphone</th>                                                 
+                                                    <th><i class='fa fa-calendar'></i> Date de naissance</th>
+                                                    <th><i class='fa fa-map-marker'></i> Région</th>
+                                                    <th><i class='fa fa-envelope-open'></i> Adresse mail</th>
+                                                    <th><i class='fa fa-expeditedssl'></i> Actions</th>
                                                 </tr>
                                                 </tfoot>";
                                         // output data of each row

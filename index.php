@@ -56,7 +56,6 @@ if (isset($_REQUEST['statut']) && ($_REQUEST['statut'] == 'Médecin')){
         $email_medecin = $rows2["email"];
         $specialite_medecin = $rows2["specialite"];
         $date_register_medecin = $rows2["date_inscription"];
-        $heure_register_medecin = $rows2["heure_inscription"];
     //echo $rows;
 	if($rows > 0){
         $_SESSION['username'] = $username;
@@ -69,7 +68,6 @@ if (isset($_REQUEST['statut']) && ($_REQUEST['statut'] == 'Médecin')){
             $_SESSION['email_medecin'] = $email_medecin;
             $_SESSION['specialite_medecin'] = $specialite_medecin;
             $_SESSION['date_register_medecin'] = $date_register_medecin;
-            $_SESSION['heure_register_medecin'] = $heure_register_medecin;
         
 	    header("Location: corps_medical.php");
 	}else{
@@ -102,7 +100,6 @@ if (isset($_REQUEST['statut']) && ($_REQUEST['statut'] == 'Médecin')){
         $region_patient = $rows2["region"];
         $email_patient = $rows2["email"];
         $date_register_patient = $rows2["date_inscription"];
-        $heure_register_patient = $rows2["heure_inscription"];
         
         //echo $rows;
         if($rows>0){
@@ -115,7 +112,6 @@ if (isset($_REQUEST['statut']) && ($_REQUEST['statut'] == 'Médecin')){
             $_SESSION['region_patient'] = $region_patient;
             $_SESSION['email_patient'] = $email_patient;
             $_SESSION['date_register_patient'] = $date_register_patient;
-            $_SESSION['heure_register_patient'] = $heure_register_patient;
             header("Location: patient.php");
         }else{
             $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";

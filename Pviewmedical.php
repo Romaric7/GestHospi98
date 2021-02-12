@@ -101,8 +101,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 big"><?php echo $_SESSION['nom_patient'];?><br>
-                                <?php echo $_SESSION['prenom_patient'];?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 big" style="font-size:18px"><?php echo $_SESSION['nom_patient']." ".$_SESSION['prenom_patient'];?><br>
+                                </span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -132,7 +132,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                           
-                            <h7 class="m-0 font-weight-bold text-primary">GESTOUAGA</h7>
+                            <h7 class="m-0 font-weight-bold text-primary" style="font-size:20px">GESTOUAGA PATIENT</h7>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

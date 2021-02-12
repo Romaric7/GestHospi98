@@ -72,10 +72,8 @@ $err='';
 
           date_default_timezone_set('Europe/Paris');
 
-          $date_inscription = date("d-m-Y");
-
-          $heure_inscription = date("H:i:s");
-          
+          $date_inscription = date("Y-m-d H:i:s");
+         
           $new_password = md5($password);
 
           /*if ( $nbre_char_telephone > 9) {
@@ -95,8 +93,8 @@ $err='';
           </div>";  }
 
           elseif (strtotime( $date_naissance) <= strtotime(date("Y-m-d")) AND $nbre_char_telephone == 9 ) {
-                $query = "INSERT INTO patient(login_patient,mot_de_passe,nom,prenom,sexe,adresse,telephone,date_naissance,region_origine,email,date_inscription,heure_inscription)
-                  VALUES ('$username', '$new_password','$nom','$prenom','$sexe','$adresse','$telephone','$date_naissance','$region','$email','$date_inscription','$heure_inscription')";
+                $query = "INSERT INTO patient(login_patient,mot_de_passe,nom,prenom,sexe,adresse,telephone,date_naissance,region_origine,email,date_inscription)
+                  VALUES ('$username', '$new_password','$nom','$prenom','$sexe','$adresse','$telephone','$date_naissance','$region','$email','$date_inscription')";
                   $res = mysqli_query($conn, $query);
                 if ($res) {
                     $err="<div class='alert alert-success alert-dismissible fade show' role='alert'>

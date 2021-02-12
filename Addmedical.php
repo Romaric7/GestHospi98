@@ -31,9 +31,9 @@
 
               date_default_timezone_set('Europe/Paris');
 
-                $date_inscription = date('d-m-Y');
+              $date_inscription = date("Y-m-d H:i:s");
 
-                $heure_inscription = date('H:i:s');
+                //$heure_inscription = date('H:i:s'); $date_inscription = date('d-m-Y');
   
               $new_password = md5($password);
               
@@ -47,8 +47,8 @@
               </div>";  }
     
               elseif (strtotime( $date_naissance) <= strtotime(date("Y-m-d")) AND $nbre_char_telephone == 9 ) {
-                $query = "INSERT INTO corps_medical(login_cm,mot_de_passe,nom,prenom,sexe,adresse,telephone,date_naissance,region_origine,email,specialite,date_inscription,heure_inscription,statut)
-                VALUES ('$username', '$new_password','$nom','$prenom','$sexe','$adresse','$telephone','$date_naissance','$region','$email','$specialite','$date_inscription','$heure_inscription','$statut')";
+                $query = "INSERT INTO corps_medical(login_cm,mot_de_passe,nom,prenom,sexe,adresse,telephone,date_naissance,region_origine,email,specialite,statut,date_inscription)
+                VALUES ('$username', '$new_password','$nom','$prenom','$sexe','$adresse','$telephone','$date_naissance','$region','$email','$specialite','$statut','$date_inscription')";
                       $res = mysqli_query($conn, $query);
                     if ($res) {
                         $err="<div class='alert alert-success alert-dismissible fade show' role='alert'>

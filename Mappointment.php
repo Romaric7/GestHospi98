@@ -140,7 +140,7 @@
 
                                     $conn=new mysqli("localhost","root","","gesthospi");
 
-                                    $sql = "SELECT * FROM rendez_vous WHERE fk_corps_medical= $id_medecin";
+                                    $sql = "SELECT * FROM rendez_vous WHERE fk_corps_medical= $id_medecin ORDER BY pk_rendez_vous DESC";
                                     $result = mysqli_query($conn, $sql);
                                  
 
@@ -149,7 +149,7 @@
                                         echo "
                                              <thead>
                                                 <tr>
-                                                    <th><i class='fa fa-user-md'></i> Patient sollicitant</th>
+                                                    <th><i class='fa fa-user'></i> Patient sollicitant</th>
                                                     <th><i class='fa fa-calendar'></i> Date du rendez-vous</th>
                                                     <th><i class='fa fa-clock'></i> Heure du rendez-vous</th>
                                                     <th><i class='fa fa-pencil-square-o'></i> Motif</th> 
@@ -159,7 +159,7 @@
                                                 </thead>
                                                 <tfoot>
                                                 <tr>
-                                                <th><i class='fa fa-user-md'></i> Patient sollicitant</th>
+                                                <th><i class='fa fa-user'></i> Patient sollicitant</th>
                                                 <th><i class='fa fa-calendar'></i> Date du rendez-vous</th>
                                                 <th><i class='fa fa-clock'></i> Heure du rendez-vous</th>
                                                 <th><i class='fa fa-pencil-square-o'></i> Motif</th> 
@@ -196,7 +196,7 @@
                                             $prenom_patient = $row2["prenom"];
 
                             
-                                            echo "<tbody><tr><td>" .$nom_patient." ".$prenom_patient."</td><td>".$row["date_rendez_vous"]."</td><td>".$row["heure_rendez_vous"]."</td><td>".$row["motif"]."</td><i><td style='color:green;font-size:18px'>".$row["statut"]."</td></i><td><a href='rejectappointment.php?id=".$row["pk_rendez_vous"]."'><button class='btn btn-primary' title='Rejeter' style='background-color:red; border:1px solid red'><i class='fa fa fa-trash'></i></button></a></td></tr>";
+                                            echo "<tbody><tr><td>" .$nom_patient." ".$prenom_patient."</td><td>".$row["date_rendez_vous"]."</td><td>".$row["heure_rendez_vous"]."</td><td>".$row["motif"]."</td><i><td style='color:black;font-size:18px'>".$row["statut"]."</td></i><td><a href='rejectappointment.php?id=".$row["pk_rendez_vous"]."'></td></tr>";
                                        
                                         }
                                         echo "</tbody></table>";

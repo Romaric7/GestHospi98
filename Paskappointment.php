@@ -33,13 +33,14 @@
         $motif=$_REQUEST['motif'];
         if (strtotime( $date_rdv) < strtotime(date("Y-m-d"))) {
             $err="<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-            <strong>Vérifiez votre date de rendez-vous</strong>
+            <strong>Date de rendez-vous invalide</strong>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>
-          </div>";         }
-        elseif (strtotime( $date_rdv) >= strtotime(date("Y-m-d"))) {
-            if (strtotime($heure_rdv)>strtotime(date("H:i:s"))) {
+          </div>";         
+        }
+        else if (strtotime( $date_rdv) == strtotime(date("Y-m-d"))) {
+            if (strtotime($heure_rdv)>=strtotime(date("H:i:s"))) {
                 $query = "INSERT INTO rendez_vous(fk_corps_medical,specialite,date_rendez_vous,heure_rendez_vous,motif,statut,fk_patient) VALUES ('$pk_medecin','$specialite','$date_rdv','$heure_rdv','$motif','$stat','$idp')";
                 $res = mysqli_query($con, $query);
                 if ($res) {
@@ -53,7 +54,7 @@
             }
             else {
                 $err="<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-                <strong>Verifiez l'heure de votre rendez-vous</strong>
+                <strong>Heure de votre rendez-vous invalide</strong>
                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                   <span aria-hidden='true'>&times;</span>
                 </button>
@@ -61,6 +62,29 @@
             }
            
         }
+
+        else if (strtotime( $date_rdv) > strtotime(date("Y-m-d"))) {
+                $query = "INSERT INTO rendez_vous(fk_corps_medical,specialite,date_rendez_vous,heure_rendez_vous,motif,statut,fk_patient) VALUES ('$pk_medecin','$specialite','$date_rdv','$heure_rdv','$motif','$stat','$idp')";
+                $res = mysqli_query($con, $query);
+                if ($res) {
+                    $err="<div class='alert alert-success alert-dismissible fade show' role='alert'>
+                    <strong>Votre rendez-vous a été enregistré!!!</strong>
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span>
+                    </button>
+                  </div>";        
+                }  
+            /*else {
+                $err="<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                <strong>Verifiez l'heure de votre rendez-vous</strong>
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                  <span aria-hidden='true'>&times;</span>
+                </button>
+              </div>";   
+            }*/
+           
+        }
+
         else{
             $err="<div class='alert alert-warning alert-dismissible fade show' role='alert'>
             <strong>Erreur lors de l'enregistrement du rendez-vous!!!</strong>
@@ -161,8 +185,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 big"><?php echo $_SESSION['nom_patient'];?><br>
-                                <?php echo $_SESSION['prenom_patient'];?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 big" style="font-size:18px"><?php echo $_SESSION['nom_patient'] ." ". $_SESSION['prenom_patient'];?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>

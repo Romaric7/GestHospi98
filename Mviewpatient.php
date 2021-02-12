@@ -112,8 +112,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 big"><?php echo $_SESSION['nom_medecin'];?><br>
-                                <?php echo $_SESSION['prenom_medecin'];?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 big" style="font-size:18px"><?php echo $_SESSION['nom_medecin']." ".$_SESSION['prenom_medecin'];?><br>
+                                </span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -137,13 +137,13 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Liste des patients de <?php echo "DR"." ".$_SESSION['nom_medecin']." ".$_SESSION['prenom_medecin'];?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Liste des patients</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                           
-                            <h7 class="m-0 font-weight-bold text-primary">GESTOUAGA</h7>
+                            <h7 class="m-0 font-weight-bold text-primary" style="font-size:20px">GESTOUAGA MEDICAL</h7>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -158,33 +158,35 @@
                                         die("Connection failed: " . mysqli_connect_error());
                                     }
 
-                                    $sql = "SELECT nom, prenom, sexe, adresse, telephone, date_naissance, region_origine, email FROM patient ORDER BY pk_patient DESC";
+                                    $sql = "SELECT * FROM patient ORDER BY pk_patient DESC";
                                     $result = mysqli_query($conn, $sql);
 
                                     if (mysqli_num_rows($result) > 0) {
                                         echo "
                                              <thead>
                                                 <tr>
-                                                    <th>Nom</th>
-                                                    <th>Prénom</th>
-                                                    <th>Sexe</th>
-                                                    <th>Adresse</th>
-                                                    <th>Téléphone</th>                                                 
-                                                    <th>Date de naissance</th>
-                                                    <th>Région</th>
-                                                    <th>Adresse mail</th>
+                                                    <th><i class='fa fa-user'></i> Nom</th>
+                                                    <th><i class='fa fa-user'></i> Prénom</th>
+                                                    <th><i class='fa fa-mars-double'></i> Sexe</th>
+                                                    <th><i class='fa fa-home'></i> Adresse</th>
+                                                    <th><i class='fa fa-phone'></i> Téléphone</th>                                                 
+                                                    <th><i class='fa fa-calendar'></i> Date de naissance</th>
+                                                    <th><i class='fa fa-map-marker'></i> Région</th>
+                                                    <th><i class='fa fa-envelope-open'></i> Adresse mail</th>
+                                                    <th><i class='fa fa-expeditedssl'></i> Actions</th>
                                                 </tr>
                                                 </thead>
                                                 <tfoot>
                                                 <tr>
-                                                    <th>Nom</th>
-                                                    <th>Prénom</th>
-                                                    <th>Sexe</th>
-                                                    <th>Adresse</th>
-                                                    <th>Téléphone</th>                                                 
-                                                    <th>Date de naissance</th>
-                                                    <th>Région</th>
-                                                    <th>Adresse mail</th>
+                                                    <th><i class='fa fa-user'></i> Nom</th>
+                                                    <th><i class='fa fa-user'></i> Prénom</th>
+                                                    <th><i class='fa fa-mars-double'></i> Sexe</th>
+                                                    <th><i class='fa fa-home'></i> Adresse</th>
+                                                    <th><i class='fa fa-phone'></i> Téléphone</th>                                                 
+                                                    <th><i class='fa fa-calendar'></i> Date de naissance</th>
+                                                    <th><i class='fa fa-map-marker'></i> Région</th>
+                                                    <th><i class='fa fa-envelope-open'></i> Adresse mail</th>
+                                                    <th><i class='fa fa-expeditedssl'></i> Actions</th>
                                                 </tr>
                                                 </tfoot>";
                                         // output data of each row
